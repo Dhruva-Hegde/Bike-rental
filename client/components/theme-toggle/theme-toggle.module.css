@@ -1,0 +1,46 @@
+.toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle:hover {
+  background: var(--bg-tertiary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.toggle svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+  transition: transform 0.2s ease;
+}
+
+.toggle:hover svg {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .toggle {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+}

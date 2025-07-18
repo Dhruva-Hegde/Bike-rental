@@ -1,0 +1,328 @@
+/* ========== GLOBAL ========== */
+.container {
+  min-height: calc(100vh - 80px);
+  padding: 2rem 0;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  gap: 1rem;
+  color: #333;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #111;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(#04f6c2 0%, #0a0202 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== FILTERS ========== */
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .filters {
+   background: rgba(255, 255, 255, 0.1);
+}
+
+.filterBtn {
+  padding: 12px 24px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.05);
+  color: #222;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: rgb(247, 247, 247);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.filterBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+  transition: left 0.5s;
+}
+
+.filterBtn:hover::before {
+  left: 100%;
+}
+
+.filterBtn:hover {
+  border-color: #000;
+  color: white;
+  background: rgb(0, 0, 0);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.filterBtn.active {
+  background: #000000;
+  border-color: #333;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dark .filterBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* ========== ERROR BLOCK ========== */
+.error {
+  background: rgba(254, 226, 226, 0.95);
+  backdrop-filter: blur(10px);
+  color: #dc2626;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  margin-bottom: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+}
+
+.retryBtn {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.retryBtn:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+}
+
+/* ========== GRID ========== */
+.bikesGrid, .loadingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2rem;
+}
+
+/* ========== SKELETON ========== */
+.skeletonCard {
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.skeletonImage {
+  height: 250px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.skeletonContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeletonTitle {
+  height: 1.5rem;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  width: 70%;
+}
+
+.skeletonText {
+  height: 1rem;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ========== NO BIKES ========== */
+.noBikes {
+  text-align: center;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.resetBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; }
+  .subtitle { font-size: 1rem; }
+  .filters { gap: 0.5rem; padding: 15px; }
+  .filterBtn { padding: 10px 16px; font-size: 12px; }
+  .bikesGrid, .loadingGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ========== DARK MODE ========== */
+.dark .container {
+  background: #121212;
+}
+
+.dark .loading,
+.dark .header,
+.dark .subtitle,
+.dark .noBikes {
+  color: #fff;
+}
+
+.dark .spinner {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+}
+
+.dark .title {
+  background: linear-gradient(#04f6c2 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .filters {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .filterBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.dark .filterBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+.dark .filterBtn.active {
+  background: white;
+  color: #667eea;
+  border-color: white;
+}
+
+.dark .skeletonCard,
+.dark .skeletonImage,
+.dark .skeletonTitle,
+.dark .skeletonText,
+.dark .noBikes {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .error {
+  background: rgba(255, 100, 100, 0.1);
+  color: #ff4f4f;
+  border-color: rgba(255, 100, 100, 0.2);
+}
+
+.dark .resetBtn {
+  background: linear-gradient(135deg, #4a64d8 0%, #5e3c84 100%);
+}
+
+.dark .resetBtn:hover {
+  background: linear-gradient(135deg, #3a54c8 0%, #4a2c74 100%);
+}
+
+.dark .retryBtn {
+  background: linear-gradient(135deg, #e05252 0%, #b83232 100%);
+}
+
+.dark .retryBtn:hover {
+  background: linear-gradient(135deg, #c13232 0%, #991b1b 100%);
+}

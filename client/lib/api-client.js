@@ -4,7 +4,7 @@ class ApiClient {
   baseUrl
   token
 
-  constructor(baseUrl = "http://localhost:5000/api") {
+  constructor(baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api") {
     this.baseUrl = baseUrl
     this.token = Cookies.get("token") || null
   }
